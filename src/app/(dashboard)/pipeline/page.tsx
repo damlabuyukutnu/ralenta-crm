@@ -119,6 +119,7 @@ export default function PipelinePage() {
           const stageOpportunities = opportunities.filter((opportunity) => opportunity.stage === stage);
           const stageTotal = stageOpportunities.reduce((sum, opportunity) => sum + opportunity.amount, 0);
           const config = OPPORTUNITY_STAGE_CONFIG[stage];
+          const StageIcon = config.icon;
 
           return (
             <div
@@ -130,15 +131,20 @@ export default function PipelinePage() {
               onDragLeave={() => setDragOverStage((current) => (current === stage ? null : current))}
               onDrop={(event) => handleDrop(event, stage)}
               className={cn(
-                "flex w-72 shrink-0 flex-col rounded-xl border bg-slate-50/60 transition-colors",
+                "flex w-72 shrink-0 flex-col overflow-hidden rounded-xl border bg-white/60 shadow-sm transition-colors",
                 dragOverStage === stage ? "border-brand-400 bg-brand-50/60" : "border-slate-200",
               )}
             >
-              <div className="border-b border-slate-200 px-3 py-3">
-                <p className="text-sm font-semibold text-slate-900">{config.label}</p>
-                <p className="text-xs text-slate-500">
-                  {stageOpportunities.length} deals · {formatCurrency(stageTotal)}
-                </p>
+              <div className="flex items-center justify-between gap-2 bg-gradient-to-br from-violet-700 to-indigo-600 px-3 py-3">
+                <div>
+                  <p className="text-sm font-semibold text-white">{config.label}</p>
+                  <p className="text-xs text-white/75">
+                    {stageOpportunities.length} deals · {formatCurrency(stageTotal)}
+                  </p>
+                </div>
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/20">
+                  <StageIcon className="h-3.5 w-3.5 text-white" />
+                </div>
               </div>
               <div className="flex-1 space-y-2 p-2">
                 {stageOpportunities.length === 0 ? (

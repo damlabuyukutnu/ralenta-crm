@@ -3,6 +3,7 @@
 import type { DragEvent } from "react";
 import Link from "next/link";
 import { Building2, Calendar } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { DropdownMenu, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { OPPORTUNITY_STAGE_CONFIG, OPPORTUNITY_STAGES } from "@/lib/constants/crm";
 import { formatCurrency, formatDate } from "@/lib/utils";
@@ -27,11 +28,13 @@ export function OpportunityCard({
   onMoveStage,
   onDragStart,
 }: OpportunityCardProps) {
+  const stageConfig = OPPORTUNITY_STAGE_CONFIG[opportunity.stage];
+
   return (
     <div
       draggable
       onDragStart={onDragStart}
-      className="cursor-grab rounded-lg border border-slate-200 bg-white p-3 shadow-sm active:cursor-grabbing"
+      className="cursor-grab rounded-xl border border-slate-200 bg-white p-3 shadow-sm transition-shadow hover:shadow-md active:cursor-grabbing"
     >
       <div className="flex items-start justify-between gap-2">
         <Link href={`/pipeline/${opportunity.id}`} className="text-sm font-medium text-slate-900 hover:text-brand-700">
@@ -56,7 +59,10 @@ export function OpportunityCard({
           {companyName ?? contactName}
         </p>
       ) : null}
-      <div className="mt-2 flex items-center justify-between text-xs text-slate-500">
+      <div className="mt-2.5">
+        <Badge tone={stageConfig.tone}>{stageConfig.label}</Badge>
+      </div>
+      <div className="mt-2.5 flex items-center justify-between text-xs text-slate-500">
         <span className="font-medium text-slate-700">{formatCurrency(opportunity.amount)}</span>
         {opportunity.expectedCloseDate ? (
           <span className="flex items-center gap-1">

@@ -79,7 +79,7 @@ export default function OverviewPage() {
                       tickFormatter={(value) => formatCurrency(Number(value))}
                     />
                     <Tooltip formatter={(value) => formatCurrency(Number(value))} cursor={{ fill: "#f1f5f9" }} />
-                    <Bar dataKey="revenue" fill="#1c7d68" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="revenue" fill="#4f46e5" radius={[4, 4, 0, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>

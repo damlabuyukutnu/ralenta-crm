@@ -1,14 +1,27 @@
-import { Phone, Users, Mail, CheckSquare, StickyNote, type LucideIcon } from "lucide-react";
+import {
+  Phone,
+  Users,
+  Mail,
+  CheckSquare,
+  StickyNote,
+  Search,
+  ShieldCheck,
+  FileText,
+  ArrowLeftRight,
+  CheckCircle2,
+  XCircle,
+  type LucideIcon,
+} from "lucide-react";
 import type { BadgeTone } from "@/components/ui/badge";
 import type { ActivityType, LeadSource, LeadStatus, OpportunityStage } from "@/lib/types/crm";
 
-export const OPPORTUNITY_STAGE_CONFIG: Record<OpportunityStage, { label: string; tone: BadgeTone }> = {
-  new: { label: "New", tone: "neutral" },
-  qualified: { label: "Qualified", tone: "blue" },
-  proposal: { label: "Proposal", tone: "amber" },
-  negotiation: { label: "Negotiation", tone: "violet" },
-  won: { label: "Won", tone: "emerald" },
-  lost: { label: "Lost", tone: "rose" },
+export const OPPORTUNITY_STAGE_CONFIG: Record<OpportunityStage, { label: string; tone: BadgeTone; icon: LucideIcon }> = {
+  new: { label: "New", tone: "neutral", icon: Search },
+  qualified: { label: "Qualified", tone: "blue", icon: ShieldCheck },
+  proposal: { label: "Proposal", tone: "amber", icon: FileText },
+  negotiation: { label: "Negotiation", tone: "violet", icon: ArrowLeftRight },
+  won: { label: "Won", tone: "emerald", icon: CheckCircle2 },
+  lost: { label: "Lost", tone: "rose", icon: XCircle },
 };
 
 export const OPPORTUNITY_STAGES = ["new", "qualified", "proposal", "negotiation", "won", "lost"] as const satisfies readonly OpportunityStage[];

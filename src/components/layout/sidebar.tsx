@@ -36,8 +36,10 @@ export function Sidebar({ onNavigate }: SidebarProps) {
               onClick={onNavigate}
               aria-current={isActive ? "page" : undefined}
               className={cn(
-                "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                isActive ? "bg-brand-50 text-brand-700" : "text-slate-600 hover:bg-slate-50 hover:text-slate-900",
+                "flex items-center gap-3 rounded-lg border-l-[3px] py-2 pl-[9px] pr-3 text-sm font-medium transition-colors",
+                isActive
+                  ? "border-brand-600 bg-brand-50 text-brand-700"
+                  : "border-transparent text-slate-600 hover:bg-slate-50 hover:text-slate-900",
               )}
             >
               <Icon className={cn("h-4 w-4", isActive ? "text-brand-600" : "text-slate-400")} />
