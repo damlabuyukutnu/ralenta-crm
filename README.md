@@ -2,7 +2,25 @@
 
 Ralenta is a CRM and sales pipeline application for a small sales team. It covers lead management, contacts, companies, a drag-and-drop sales pipeline, follow-up activities, and sales analytics — built as a front-end portfolio project.
 
-**Live demo:** not deployed yet.
+**Live Demo:** [https://ralenta-crm.vercel.app/](https://ralenta-crm.vercel.app/)
+
+## Screenshots
+
+### Overview
+
+![Overview](public/screenshots/overview.png)
+
+### Leads
+
+![Leads](public/screenshots/leads.png)
+
+### Sales Pipeline
+
+![Sales Pipeline](public/screenshots/pipeline.png)
+
+### Analytics
+
+![Analytics](public/screenshots/analytics.png)
 
 ## How this app stores data
 
@@ -64,8 +82,6 @@ The app is a standard Next.js project with no environment variables to configure
 1. Push this repository to GitHub.
 2. Import it into [Vercel](https://vercel.com/new).
 3. Deploy — there is nothing else to set up, since there is no database or auth provider in the loop.
-
-After deploying, add the live URL to this README.
 
 ## Checklist
 
